@@ -53,6 +53,8 @@ def make_corpus(corpus, text_file_dir):
     i = 0
     texts = wiki.get_texts()
     for text in texts:
+        print(text)
+        break
         file_add = text_file_dir + str(i).zfill(7)
         file = open(file_add, 'w')
         if six.PY3:
@@ -68,7 +70,8 @@ def make_corpus(corpus, text_file_dir):
 
 if __name__ == '__main__':
     input_file = "enwiki-latest-pages-articles.xml.bz2"
-    output_dir = "textFiles/"
+    # output_dir = "textFiles/"
+    output_dir = "test_textFiles/"
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
     make_corpus(input_file, output_dir)

@@ -10,14 +10,16 @@
 # that represent the same term and multi words terms are separated by "_", for instance a row can be: "NY, New_York"
 # - seed: seed terms to expand
 
-general_config = {'corpus_dir': "../data/",
+general_config = {'corpus_dir': "./",
                   'num_of_sentences': 2000,             # if available in corpus
                   'num_of_indicative_patterns': 160,
                   'size_of_expanded': 200,
                   'use_indexer': False,
                   'batch_size': 50,
-                  'set_file': "../sets/NFL_set.txt",  # if available, for evaluation.
-                  'seed': ["jets", "ravens", "giants"]}
+                  # 'set_file': "sets/NFL_set.txt",  # if available, for evaluation.
+                  # 'seed': ["jets", "ravens", "giants"] # NFL
+                  'set_file': "",
+                  'seed': ["juul", "puffbar", "markten"]}
 
 
 # MPB2 configs are used when running MPB2 directly or when running MPB2 from run_experiments.
@@ -30,7 +32,7 @@ general_config = {'corpus_dir': "../data/",
 # - percentage_of_corpus_to_use: the corpus we use contains ~5000000 articles.
 # Searching for candidate sentences in all of these without an indexer takes very long.
 # with this field you can control which part of the corpus tou want to use.
-MPB2_config = {'assume_oracle_candidates': True,    # only possible if full set is available
+MPB2_config = {'assume_oracle_candidates': False,    # only possible if full set is available
                'max_sentences_for_each_cand': 100,   # if available in corpus. Should be larger than num_of_indicative_patterns
                'similarity_param': 50,
                'total_terms_to_consider': 200000,  # If you want all available terms to be used use 4000000

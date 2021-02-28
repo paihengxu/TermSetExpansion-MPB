@@ -8,8 +8,9 @@ def get_query_from_terms(terms, s2v):
     return query
 
 
+# TODO: new method to get candidate terms
 def get_candidates_closest_to_seed_terms(terms, num_of_candidates, num_of_top_frequency_terms_to_consider):
-    s2v = Sense2Vec().from_disk("../data/s2v_reddit_2019_lg")
+    s2v = Sense2Vec().from_disk("s2v_reddit_2019_lg")
     query = get_query_from_terms(terms, s2v)
     most_similar = s2v.most_similar(query, n=num_of_candidates * 50)  # have some extra because of non top frequency cands
     candidates = [i[0] for i in most_similar]

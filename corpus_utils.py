@@ -82,7 +82,8 @@ def find_sentences_with_terms_indexer(terms, corpus_dir, number_of_sentences, se
     random.shuffle(containing_files)
     sentences_with_terms = []
     for fileName in containing_files:
-        file_full_name = corpus_dir + "textFiles/" + fileName
+        # TODO: dir to text Files
+        file_full_name = corpus_dir + "sample_textFiles/" + fileName
         f = open(file_full_name, 'r')
         text = f.read()
         sentences_with_terms.extend(get_sentences_with_terms_from_file(text, terms))
